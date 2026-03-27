@@ -1,0 +1,646 @@
+ 
+        :root {
+            --sage-bg: #a5ad8f;
+            --olive-bg: #838e68;
+            --charcoal: #2d2d2d;
+            --text-main: #1a1a1a;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--sage-bg);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section (Top) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 65vh;
+            padding: 40px 10%;
+            gap: 60px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 strong {
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            margin-bottom: 2rem;
+        }
+
+        .hero-content p strong {
+            font-weight: 700;
+        }
+
+        /* The Wavy Line SVG */
+        .wave-container {
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Profile Image Styling */
+        .profile-frame {
+            position: relative;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 150px; /* Creates that specific pill shape */
+            filter: grayscale(100%);
+            display: block;
+        }
+
+        /* --- SUBPAGE LAYOUT (Fixes the misalignment) --- */
+.subpage {
+    background-color: var(--sage-bg);
+}
+
+.top-nav {
+    padding: 20px 5%;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.9rem;
+}
+
+/* This container stops the text from hitting the edges of the screen */
+.about-content-wrapper {
+    max-width: 900px;
+    margin: 40px auto 100px auto; /* Centers the content block */
+    padding: 0 40px;
+}
+
+.about-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 5px;
+}
+
+/* This fixes the giant wave issue */
+.wave-accent {
+    width: 280px; /* Exact size from your draft */
+    margin-bottom: 40px;
+}
+
+.about-body-text p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 800px; /* Prevents lines from being too long to read */
+}
+
+/* Container for the About Me body text */
+.about-text-wrapper {
+    max-width: 800px; /* Limits the width so lines aren't too long to read */
+    margin: 0 auto;   /* Centers the entire block on the page */
+    padding: 0 40px;  /* Adds padding so text doesn't hit the edges on mobile */
+    text-align: left; /* Keeps the text itself left-aligned for better readability */
+}
+
+.about-text-wrapper p {
+    margin-bottom: 25px; /* Adds consistent spacing between paragraphs */
+    line-height: 1.7;    /* Improves readability with better line spacing */
+    font-size: 1.1rem;
+}
+
+/* --- FOOTER ALIGNMENT (Shared) --- */
+.footer-shared {
+    background-color: var(--olive-bg);
+    display: flex;
+    justify-content: center;
+    padding: 60px 5%;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.footer-divider {
+    width: 1px;
+    background-color: rgba(0,0,0,0.1);
+    height: 150px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-button-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.annotation {
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    margin-left: 15px;
+    white-space: nowrap;
+}
+/* --- [REPLACE THE ENTIRE 'WORK HISTORY PAGE' BLOCK IN YOUR STYLE.CSS] --- */
+.work-content-wrapper {
+    max-width: 900px;
+    margin: 20px auto 120px auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center everything */
+    text-align: center;
+}
+
+.work-header {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.eyebrow-text {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.wave-accent { width: 280px; margin: 10px 0 40px 0; }
+
+.work-list { display: flex; flex-direction: column; gap: 80px; width: 100%; }
+
+.work-item { display: flex; flex-direction: column; align-items: center; }
+
+/* The new grouping container for the hover interaction */
+.work-company-wrapper {
+    position: relative; /* Essential for positioning the image behind the text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* Allows the image to overflow slightly for that organic look */
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+/* The massive clickable company names */
+.work-company {
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 400;
+    color: var(--text-main);
+    text-decoration: none;
+    line-height: 1.1;
+    z-index: 2; /* Ensures text is always in front of the image */
+    transition: color 0.4s ease; /* Smooth transition */
+}
+
+/* The image that appears on hover */
+.hover-doodle {
+    position: absolute; /* Sits directly behind the text */
+    max-width: 250px; /* Limits size so it's a "doodle," not a whole background */
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.8); /* Grayscale to preserve the aesthetic */
+    opacity: 0; /* Hidden by default */
+    transform: scale(0.9); /* Starts slightly smaller */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth fade and grow */
+    z-index: 1; /* Sits behind the text */
+    pointer-events: none; /* User is clicking the link, not the image */
+}
+
+/* --- THE HOVER TRIGGER --- */
+/* When the group is hovered, trigger these changes */
+.work-company-wrapper:hover .hover-doodle {
+    opacity: 1; /* Fade in */
+    transform: scale(1); /* Grow to full size */
+}
+
+.work-company-wrapper:hover .work-company {
+    color: #ffffff; /* Change text color to white for contrast against the image */
+}
+
+.work-role {
+    font-size: 1.25rem;
+    color: var(--charcoal);
+    margin-top: 10px; /* Gives the new hover image some room */
+    z-index: 2; /* Role text also stays in front */
+}
+/* --- PROJECT CASE STUDY STYLES --- */
+.project-wrapper {
+    max-width: 1100px;
+    margin: 40px auto 120px auto;
+    padding: 0 40px;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.project-header h1 {
+    font-size: 4rem;
+    margin-top: 10px;
+}
+
+/* Syncs paragraph and list item typography */
+.narrative-block p, 
+.narrative-block ul li {
+    font-size: 1.1rem; /* Adjust this value to your preferred size */
+    line-height: 1.6;  /* Ensures the vertical spacing between lines is identical */
+    margin-bottom: 12px; /* Adds consistent spacing between bullets/paragraphs */
+}
+
+/* Optional: Ensures the bullets themselves align nicely with the text */
+.narrative-block ul {
+    padding-left: 20px; 
+}
+
+/* Adds a gap after the entire list is finished */
+.narrative-block ul, 
+.narrative-block ol {
+    margin-bottom: 30px; /* Adjust this value (e.g., 20px to 40px) to get the look you want */
+}
+
+/* Ensures the last list item doesn't have its own extra bottom margin 
+   interfering with the container's margin */
+.narrative-block ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* Adds consistency to spacing under lists for the whole site */
+.narrative-block p {
+    margin-bottom: 20px;
+}
+
+/* Vine scroll element */
+/* Container positioned in the center of the left margin */
+.scroll-vine-container {
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    width: 110px;
+    height: 100vh;
+    z-index: 100;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+}
+
+.vine-svg {
+    height: 90%; 
+    width: 100%;
+    overflow: visible;
+}
+
+.vine-track, .vine-progress {
+    fill: none;
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+.vine-track {
+    stroke: #e0e6d8; /* Faint background line */
+}
+
+.vine-progress {
+    stroke: #838e68; /* The growing stem */
+}
+
+/* Leaf animation styling */
+.leaf {
+    transform-origin: 0 0; /* Leaf grows outward from the stem */
+    transform: scale(0); /* Starts hidden */
+    /* Bloom animation */
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
+}
+
+.leaf.bloom {
+    transform: scale(1); /* Full size when triggered */
+}
+
+@media (max-width: 768px) {
+    .scroll-vine-container { display: none; }
+}
+
+
+/* Hide on very small mobile screens if it gets in the way of text */
+@media (max-width: 768px) {
+    .scroll-vine-container {
+        display: none; 
+    }
+}
+
+/* Metadata grid */
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Larger area for text, smaller for sidebar */
+    gap: 80px;
+    margin-bottom: 100px;
+    align-items: start;
+}
+
+.overview-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.overview-box p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.sidebar-box {
+    background-color: rgba(255, 255, 255, 0.15); /* Subtle depth */
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.meta-item { margin-bottom: 30px; }
+.meta-item h4 { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 10px; color: var(--charcoal); }
+.meta-item ul { list-style: none; padding: 0; }
+.meta-item li, .meta-item p { font-size: 1.1rem; }
+
+/* Statistics Styling */
+.stats { display: flex; gap: 20px; flex-wrap: wrap; }
+.stat-bubble { flex: 1; min-width: 100px; }
+.stat-number { font-size: 2.5rem; font-weight: 700; color: #ffffff; display: block; }
+.stat-bubble p { font-size: 0.85rem; line-height: 1.2; }
+
+/* Narrative & Images */
+.project-narrative { max-width: 850px; margin: 0 auto; }
+.narrative-block { margin-bottom: 60px; }
+.narrative-block h2 { font-size: 2.2rem; margin-bottom: 20px; }
+.narrative-block p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 20px; }
+
+.comparison-gallery {
+    display: flex;
+    gap: 40px;
+    margin: 80px 0;
+}
+
+.comparison-item { flex: 1; position: relative; }
+.label {
+    background: var(--charcoal);
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.img-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Responsive Case Study */
+@media (max-width: 900px) {
+    .project-meta-grid, .comparison-gallery {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+}
+
+<style>
+        /* Custom styling for the section divider */
+        .section-divider {
+            width: 100%;
+            line-height: 0;
+            margin: 60px 0; /* Adjusts spacing between projects */
+        }
+        .section-divider svg {
+            width: 100%;
+            height: 60px;
+        }
+        /* Ensure projects have enough breathing room */
+        .project-section {
+            padding-bottom: 40px;
+        }
+    </style>
+
+/* Mobile adjustments */
+    @media (max-width: 600px) {
+    .work-list { gap: 60px; }
+    .work-company { margin-bottom: 12px; }
+}
+        /* Footer Section (Bottom) */
+        footer {
+            background-color: var(--olive-bg);
+            min-height: 35vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 10%;
+            gap: 80px;
+        }
+
+        .contact-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.1rem;
+        }
+
+        .link-item svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Vertical Divider Line */
+        .divider {
+            width: 1px;
+            background-color: rgba(0, 0, 0, 0.15);
+            height: 200px;
+        }
+
+        /* Navigation Buttons */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .nav-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: var(--charcoal);
+            color: white;
+            padding: 14px 45px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 400;
+            min-width: 180px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Handwritten Annotations */
+        .annotation {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            position: absolute;
+            white-space: nowrap;
+            color: #333;
+            pointer-events: none;
+        }
+
+        .note-about { top: -25px; left: -20px; }
+        .note-work { left: 195px; }
+        .note-skills { left: -75px; }
+
+        /* --- SKILLS PAGE STYLES --- */
+
+.skills-grid {
+    display: grid;
+    /* This creates responsive columns that wrap automatically on small screens */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+    padding-bottom: 80px;
+}
+
+.skill-column h2 {
+    font-size: 1.8rem;
+    color: #1a1a1a; 
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+}
+
+/* Remove default browser bullets */
+.skill-list {
+    list-style: none; 
+    padding-left: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    display: flex; /* Aligns the text and the flower perfectly */
+    align-items: center;
+    color: #333;
+}
+
+@media (min-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1023px) {
+    .skills-grid {
+        /* Falls back to 2 columns on tablets/small screens */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* The Custom Flower Bullet */
+.skill-list li::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    flex-shrink: 0; /* Prevents the flower from shrinking if the text wraps to two lines */
+    
+    /* The SVG Flower in your brand green (#838e68) */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23838e68'%3E%3Cpath d='M12 2a1.5 1.5 0 0 1 1.5 1.5c0 2.5 1.5 4 4 4A1.5 1.5 0 0 1 19 9c-2.5 0-4 1.5-4 4a1.5 1.5 0 0 1-3 0c0-2.5-1.5-4-4-4A1.5 1.5 0 0 1 9.5 7.5c2.5 0 4-1.5 4-4A1.5 1.5 0 0 1 12 2z'/%3E%3C/svg%3E");
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Specifically for the My Skills title */
+.project-header h1 {
+    text-align: center;
+}
+
+.wave-accent {
+    /* Adjust this width until it matches the length of "My Skills" */
+    width: 100%;
+    max-width: 180px; 
+    
+    /* This is the magic that centers it */
+    margin: 5px auto 0 auto; 
+    display: block;
+}
+
+.wave-accent svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+        /* Mobile Responsiveness */
+        @media (max-width: 900px) {
+            .hero, footer {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 40px;
+            }
+            .divider, .annotation {
+                display: none; /* Clean up UI for small screens */
+            }
+            .hero-content {
+                order: 1;
+            }
+            .profile-frame {
+                order: 0;
+            }
+        }
